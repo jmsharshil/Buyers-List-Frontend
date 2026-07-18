@@ -61,7 +61,7 @@ const router = createBrowserRouter([
     element: withSuspense(<ClientSession />),
   },
   {
-    path: "/gpc-dashboard",
+    path: "/buyerslist-dashboard",
     element: withSuspense(
       <Layout>
         <DatabaseOverview />
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/gpc-screening",
+    path: "/buyerslist-screening",
     element: withSuspense(
       <Layout>
         <ScreeningCriteria />
@@ -125,7 +125,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/gpc-results",
+    path: "/buyerslist-results",
     element: withSuspense(
       <Layout>
         <ScreeningResults />

@@ -18,7 +18,7 @@ const ScreeningResults = () => {
   );
 
   useEffect(() => {
-    document.title = "GPC Screening Results";
+    document.title = "Buyers List Screening Results";
   }, []);
 
   // Helper function to format numbers with commas and 2 decimal places

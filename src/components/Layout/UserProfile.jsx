@@ -102,7 +102,7 @@ const UserProfile = ({ className = "" }) => {
       {isOpen && (
         <div className="absolute right-0 mt-3 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 z-50 animate-in slide-in-from-top-2 duration-200">
           {/* Header Section */}
-          <div className="p-4 bg-gradient-to-r from-blue-100 to-indigo-300 rounded-t-xl border-b border-gray-100">
+          {/* <div className="p-4 bg-gradient-to-r from-blue-100 to-indigo-300 rounded-t-xl border-b border-gray-100">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
                 <span className="text-white font-semibold text-base">{initials}</span>
@@ -117,15 +117,15 @@ const UserProfile = ({ className = "" }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* User Details Section */}
           <div className="p-4 space-y-3">
-            <div className="flex items-center space-x-3 text-sm text-gray-600">
+            {/* <div className="flex items-center space-x-3 text-sm text-gray-600">
               <FiUser size={14} className="text-gray-400" />
               <span className="font-medium">Name:</span>
               <span className="truncate">{displayName}</span>
-            </div>
+            </div> */}
             <div className="flex items-center space-x-3 text-sm text-gray-600">
               <FiMail size={14} className="text-gray-400" />
               <span className="font-medium">Email:</span>

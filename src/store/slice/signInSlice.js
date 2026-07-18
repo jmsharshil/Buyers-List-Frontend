@@ -21,6 +21,29 @@ export const microsoftLogin = createAsyncThunk(
   }
 );
 
+export const buyersLogin = createAsyncThunk(
+  "signIn/buyersLogin",
+  async ({ email, pin }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/auth/login/`,
+        { email, pin: Number(pin) }
+      );
+      
+      // Save token to localStorage so getAuthHeaders can use it
+      const token = response.data.access_token || response.data.access || response.data.token;
+      if (token) {
+        localStorage.setItem("access_token", token);
+      }
+      
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);
+
 const initialState = {
   loading: false,
   error: null,
@@ -45,6 +68,20 @@ const signInSlice = createSlice({
         // Redirect happens, so state may not be updated if component unmounts
       })
       .addCase(microsoftLogin.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+
+    builder
+      .addCase(buyersLogin.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(buyersLogin.fulfilled, (state, action) => {
+        state.loading = false;
+        console.log(action.payload);
+      })
+      .addCase(buyersLogin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

@@ -99,7 +99,7 @@ const FinancialCriteria = ({
           </div>
         </div>
          {/*enterprise value*/}
-        <div>
+        {/* <div>
           <h4 className="text-sm font-medium text-gray-800 mb-2">
             Enterprise Value ($USDmm)
           </h4>
@@ -117,9 +117,9 @@ const FinancialCriteria = ({
               onChange={(e) => setEvMax(e.target.value)}
             />
           </div>
-        </div>
+        </div> */}
         {/*Pricing Date*/ }
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <h4 className="text-sm font-medium text-gray-800 mb-2">Pricing Date</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InputField
@@ -139,7 +139,7 @@ const FinancialCriteria = ({
               }}
             />
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>

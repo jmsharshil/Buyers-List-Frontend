@@ -8,10 +8,10 @@ export const fetchUserProfile = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/auth/profile/`,
+        `${import.meta.env.VITE_BASE_URL}/api/auth/profile/`,
         {
           headers: getAuthHeaders(),
-        }
+        },
       );
       return response.data;
     } catch (error) {

@@ -1,7 +1,7 @@
 export const getAuthHeaders = () => {
-    // const token = localStorage.getItem("access_token");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk3OTQ1NzI0LCJpYXQiOjE3NjY0MDk3MjQsImp0aSI6IjRkOTRiZTdjNmRiMzQ4ZTY4YjhiMzczNmFhMDc2MjlhIiwidXNlcl9pZCI6IjQifQ.xcQvkOHP8zGw26GSaNUk1kZJ47l32wToqAOHZufcz-w";
+    const token = localStorage.getItem("access_token");
+    // const token =
+    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzk3OTQ1NzI0LCJpYXQiOjE3NjY0MDk3MjQsImp0aSI6IjRkOTRiZTdjNmRiMzQ4ZTY4YjhiMzczNmFhMDc2MjlhIiwidXNlcl9pZCI6IjQifQ.xcQvkOHP8zGw26GSaNUk1kZJ47l32wToqAOHZufcz-w";
     if (!token) {
       console.error("Access token not found in localStorage");
       return {};

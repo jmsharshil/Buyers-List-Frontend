@@ -84,8 +84,8 @@ const PrimarySelection = ({
   return (
     <div className="col-span-1 md:col-span-2">
       <h3 className="text-2xl text-gray-900 font-bold mb-4">Primary Selection</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {category === 'gpc' &&  <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-600">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+        {/* {category === 'gpc' &&  <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-600">
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-gray-900 mb-3">Primary Sectors</h4>
             {primarySectors.map((sector, index) => (
@@ -130,7 +130,7 @@ const PrimarySelection = ({
               )}
             </div>
           </div>
-        </div>}
+        </div>} */}
 
         <div className="bg-green-50 rounded-xl p-6 border-2 border-green-600">
           <div className="space-y-4">

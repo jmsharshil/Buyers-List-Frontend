@@ -7,9 +7,12 @@ export const fetchSummary = createAsyncThunk(
   'databaseOverview/fetchSummary',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/dashboard/summary/`, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/buyerslist/dashboard/summary/`,
+        {
+          headers: getAuthHeaders(),
+        },
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -21,9 +24,12 @@ export const fetchCountries = createAsyncThunk(
   'databaseOverview/fetchCountries',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/dashboard/countries/`, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/buyerslist/dashboard/countries/`,
+        {
+          headers: getAuthHeaders(),
+        },
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -35,9 +41,12 @@ export const fetchSectors = createAsyncThunk(
   'databaseOverview/fetchSectors',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/dashboard/sectors/`, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/buyerslist/dashboard/sectors/`,
+        {
+          headers: getAuthHeaders(),
+        },
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -49,9 +58,12 @@ export const fetchIndustries = createAsyncThunk(
   'databaseOverview/fetchIndustries',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/dashboard/industries/`, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/buyerslist/dashboard/industries/`,
+        {
+          headers: getAuthHeaders(),
+        },
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -63,9 +75,12 @@ export const fetchDates = createAsyncThunk(
   'databaseOverview/fetchDates',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/project-dates/`, {
-        headers: getAuthHeaders(),
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/buyerslist/project-dates/`,
+        {
+          headers: getAuthHeaders(),
+        },
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);

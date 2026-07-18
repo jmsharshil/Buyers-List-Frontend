@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 // Derive which service we're in based on the current URL path
 const getServiceFromPath = (path) => {
   if (!path) return "default";
-  if (path.startsWith("/gpc-")) return "gpc";
+  if (path.startsWith("/buyerslist-")) return "buyerslist";
   if (path.startsWith("/tsa-")) return "tsa";
   if (path.startsWith("/auditai-")) return "auditai";
   return "default";
@@ -22,18 +22,18 @@ const getServiceFromPath = (path) => {
 
 // Navigation config per service
 const NAV_CONFIG = {
-  gpc: [
-    { icon: LayoutDashboard, name: "Dashboard", path: "/gpc-dashboard", isImage: false },
-    { icon: Filter, name: "Screening", path: "/gpc-screening", isImage: false },
-    { icon: FileText, name: "Results", path: "/gpc-results", isImage: false },
+  buyerslist: [
+    { icon: LayoutDashboard, name: "Dashboard", path: "/buyerslist-dashboard", isImage: false },
+    { icon: Filter, name: "Screening", path: "/buyerslist-screening", isImage: false },
+    { icon: FileText, name: "Results", path: "/buyerslist-results", isImage: false },
     // { icon: Users, name: 'Users', path: '/users', isImage: false },
     // { icon: Lightbulb, name: "Ask-Ai", path: "/ask-ai", isImage: false },
-    {
-      icon: Home,
-      name: "Services",
-      path: "/services",
-      isImage: false,
-    },
+    // {
+    //   icon: Home,
+    //   name: "Services",
+    //   path: "/services",
+    //   isImage: false,
+    // },
   ],
   tsa: [
     { icon: LayoutDashboard, name: "Dashboard", path: "/tsa-dashboard", isImage: false },

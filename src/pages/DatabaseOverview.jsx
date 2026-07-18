@@ -34,11 +34,11 @@ const DatabaseOverview = () => {
     dispatch(fetchSectors());
     dispatch(fetchIndustries());
     dispatch(fetchDates());
-    document.title = "GPC Dashboard";
+    document.title = "Buyers List Dashboard";
   }, [dispatch]);
 
   const handleBegin = () => {
-    navigate("/gpc-screening");
+    navigate("/buyerslist-screening");
   };
 
   if (loading) {
@@ -134,15 +134,15 @@ const DatabaseOverview = () => {
       <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
         <div className="flex items-center justify-between mb-8">
           <h2 className="flex gap-2 text-xl sm:text-2xl font-bold text-gray-800 mb-6">
-            Database Summary as of {dates?.gpc_date}
+            Database Summary as of {dates?.gpc_date ?? "06/30/2026"}
           </h2>
-          <button
+          {/* <button
             onClick={() => setIsFeedbackOpen(true)}
             className="flex items-center gap-2 px-6 py-3 bg-white border border-indigo-200 text-indigo-600 rounded-xl font-bold shadow-sm hover:bg-indigo-50 hover:border-indigo-300 transition-all active:scale-95 cursor-pointer"
           >
             <MessageSquarePlus className="w-5 h-5" />
             Provide Feedback
-          </button>
+          </button> */}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {statsData.map((stat, index) => (

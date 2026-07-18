@@ -178,7 +178,7 @@ const ScreeningCriteria = () => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_BASE_URL
-          }/api/v1/api/companies/?${params.toString()}`,
+          }/buyerslist/api/companies/?${params.toString()}`,
           {
             headers: getAuthHeaders(),
           },
@@ -197,7 +197,7 @@ const ScreeningCriteria = () => {
 
   useEffect(() => {
     dispatch(fetchDates());
-    document.title = "GPC Screening";
+    document.title = "Buyers List Screening";
   }, [dispatch]);
 
   // One-time initialization to set default country and trigger initial count
@@ -345,7 +345,7 @@ const ScreeningCriteria = () => {
   const handleRunScreening = async () => {
     const response = await dispatch(runScreening(formData));
     if (runScreening.fulfilled.match(response)) {
-      navigate("/gpc-results");
+      navigate("/buyerslist-results");
     }
   };
 
@@ -456,7 +456,7 @@ const ScreeningCriteria = () => {
             </div>
           </div>
 
-          <div className="flex-1">
+          {/* <div className="flex-1">
             <KeywordsCondition />
             <div className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-blue-50 border border-blue-600 rounded-full">
               <WholeWord className="w-5 h-5 text-blue-700" />
@@ -471,7 +471,7 @@ const ScreeningCriteria = () => {
                 </span>
               )}
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Primary Selection */}
@@ -580,7 +580,7 @@ const ScreeningCriteria = () => {
             )}
           </div>
           <h3 className="flex justify-center text-xl font-bold text-gray-900 mb-3">
-            All the screening is as of {date?.gpc_date}
+            All the screening is as of {date?.gpc_date ?? "06/30/2026"}
           </h3>
         </div>
 

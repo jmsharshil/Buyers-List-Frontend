@@ -149,10 +149,10 @@ export const runScreening = createAsyncThunk(
       const response = await axios.get(
         `${
           import.meta.env.VITE_BASE_URL
-        }/api/v1/api/companies/?${params.toString()}`,
+        }/buyerslist/api/companies/?${params.toString()}`,
         {
           headers: getAuthHeaders(),
-        }
+        },
       );
 
       // console.log(
@@ -283,7 +283,7 @@ export const runAIComparison = createAsyncThunk(
         }
       }
 
-      const url = `${import.meta.env.VITE_BASE_URL}/api/v1/api/companies/?${params.toString()}`;
+      const url = `${import.meta.env.VITE_BASE_URL}/buyerslist/api/companies/?${params.toString()}`;
 
       const response = await axios.get(url, {
          headers: getAuthHeaders(),
@@ -323,7 +323,9 @@ export const fetchScreeningResults = createAsyncThunk(
   "screeningCriteria/fetchScreeningResults",
   async (url, { rejectWithValue }) => {
     try {
-      const response = await axios.get(url, {
+      // Force HTTPS if backend returns HTTP due to proxy config issues
+      const secureUrl = url ? url.replace(/^http:\/\//i, 'https://') : url;
+      const response = await axios.get(secureUrl, {
          headers: getAuthHeaders(),
       });
       return response.data;
@@ -347,7 +349,9 @@ export const selectAllCompanies = createAsyncThunk(
       let nextUrl = currentResults?.next;
       while (nextUrl && !fetchedUrls.has(nextUrl)) {
         fetchedUrls.add(nextUrl);
-        const response = await axios.get(nextUrl, {
+        // Force HTTPS if backend returns HTTP
+        const secureNextUrl = nextUrl.replace(/^http:\/\//i, 'https://');
+        const response = await axios.get(secureNextUrl, {
           headers: getAuthHeaders(),
         });
         if (response.data.results) {
@@ -359,7 +363,9 @@ export const selectAllCompanies = createAsyncThunk(
       let previousUrl = currentResults?.previous;
       while (previousUrl && !fetchedUrls.has(previousUrl)) {
         fetchedUrls.add(previousUrl);
-        const response = await axios.get(previousUrl, {
+        // Force HTTPS if backend returns HTTP
+        const securePrevUrl = previousUrl.replace(/^http:\/\//i, 'https://');
+        const response = await axios.get(securePrevUrl, {
           headers: getAuthHeaders(),
         });
         if (response.data.results) {
