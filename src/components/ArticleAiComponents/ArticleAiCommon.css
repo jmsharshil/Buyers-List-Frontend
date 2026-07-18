@@ -1,0 +1,88 @@
+:root {
+  --article-primary: #10b981; /* Emerald */
+  --article-primary-dark: #059669;
+  --article-primary-light: #ecfdf5;
+  --article-bg-paper: #fdfbf7; /* Off-white paper */
+  --article-sidebar-bg: #f8f5f0;
+  --article-chat-bg: #ffffff;
+  --article-text-main: #262626;
+  --article-text-muted: #737373;
+  --article-border: #e5e5e5;
+  --article-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.article-ai-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--article-bg-paper);
+}
+
+.article-document-view {
+  margin: 0 auto;
+  background: white;
+  min-height: 100%;
+  box-shadow: 0 0 40px rgba(0,0,0,0.03);
+  border-left: 1px solid var(--article-border);
+  border-right: 1px solid var(--article-border);
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.article-card {
+  background: white;
+  border: 1px solid var(--article-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.article-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary-article {
+  background-color: var(--article-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary-article:hover {
+  background-color: var(--article-primary-dark);
+  transform: translateY(-1px);
+}
