@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { X, Trash2, Edit2, Plus, Check, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { createClient, updateClient, deleteClient } from "../../store/slice/userAnalyticsSLice";
+import { createClient, updateClient, deleteClient } from "../../store/slice/userAnalyticsSlice";
 
 export const ClientManagementModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();

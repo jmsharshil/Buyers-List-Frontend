@@ -7,7 +7,7 @@ import {
   fetchAdminAnalyticsStats,
   fetchAdminAnalyticsListSearch,
   fetchClientNames,
-} from "../store/slice/userAnalyticsSLice";
+} from "../store/slice/userAnalyticsSlice";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, BarChart3, Download } from "lucide-react";
 import Dropdown from "../components/ScreeningForm/Dropdown";

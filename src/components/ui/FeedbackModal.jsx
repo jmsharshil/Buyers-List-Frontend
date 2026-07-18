@@ -4,7 +4,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { X } from "lucide-react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { userFeedback } from "../../store/slice/userAnalyticsSLice";
+import { userFeedback } from "../../store/slice/userAnalyticsSlice";
 
 const FeedbackModal = ({ isOpen, onClose, title = "Share Your Feedback", workflow }) => {
   const dispatch = useDispatch();

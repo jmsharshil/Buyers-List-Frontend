@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useRef, useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion as Motion } from "framer-motion";
-import { getAdminAnalytics } from "../store/slice/userAnalyticsSLice";
+import { getAdminAnalytics } from "../store/slice/userAnalyticsSlice";
 import {
   Bot,
   LayoutDashboard,

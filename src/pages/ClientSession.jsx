@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { createClientSession, fetchClientNames } from "../store/slice/userAnalyticsSLice";
+import { createClientSession, fetchClientNames } from "../store/slice/userAnalyticsSlice";
 import Dropdown from "../components/ScreeningForm/Dropdown";
 
 const ClientSession = () => {

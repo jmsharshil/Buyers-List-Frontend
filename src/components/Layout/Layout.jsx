@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import BottomNavBar from "./BottomNavBar";
+import BottomNavBar from "./BottomNavbar";
 
 
 const workflowMap = {
