@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/ui/Card";
 import allAssets from "../assets/assets";
@@ -14,7 +14,8 @@ const SignIn = () => {
   const { loading, error } = useSelector((state) => state.signIn);
   const [showErrorDialog, setShowErrorDialog] = useState(false);
   const [email, setEmail] = useState("");
-  const [pin, setPin] = useState("");
+  const [pin, setPin] = useState(["", "", "", ""]);
+  const inputRefs = useRef([]);
 
   useEffect(() => {
     if (error) {
@@ -22,10 +23,45 @@ const SignIn = () => {
     }
   }, [error]);
 
+  const handlePinChange = (index, value) => {
+    if (value && !/^\d+$/.test(value)) return;
+    const newPin = [...pin];
+    newPin[index] = value.slice(-1);
+    setPin(newPin);
+    if (value && index < 3) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && !pin[index] && index > 0) {
+      inputRefs.current[index - 1].focus();
+    }
+  };
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 4);
+    if (pastedData) {
+      const newPin = [...pin];
+      for (let i = 0; i < pastedData.length; i++) {
+        newPin[i] = pastedData[i];
+      }
+      setPin(newPin);
+      if (pastedData.length < 4) {
+        inputRefs.current[pastedData.length].focus();
+      } else {
+        inputRefs.current[3].focus();
+      }
+    }
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    const fullPin = pin.join("");
+    if (fullPin.length !== 4) return;
     try {
-      await dispatch(buyersLogin({ email, pin })).unwrap();
+      await dispatch(buyersLogin({ email, pin: parseInt(fullPin, 10) })).unwrap();
       navigate("/buyerslist-dashboard");
     } catch (err) {
       // Error is handled in the slice and displayed via ErrorDialog
@@ -77,15 +113,22 @@ const SignIn = () => {
             <label className="block text-sm font-semibold text-gray-700 text-left mb-2 pl-1">
               Security PIN
             </label>
-            <input
-              type="password"
-              value={pin}
-              onChange={(e) => setPin(e.target.value)}
-              className="w-full px-5 py-3.5 rounded-2xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all duration-300 text-gray-800 placeholder-gray-400 font-medium tracking-[0.2em]"
-              placeholder="••••"
-              maxLength={10}
-              required
-            />
+            <div className="flex gap-4 justify-between mt-2">
+              {pin.map((digit, index) => (
+                <input
+                  key={index}
+                  ref={(el) => (inputRefs.current[index] = el)}
+                  type="password"
+                  inputMode="numeric"
+                  value={digit}
+                  onChange={(e) => handlePinChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  onPaste={handlePaste}
+                  className="w-full h-14 text-center text-2xl rounded-2xl bg-gray-50/50 border border-gray-200 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all duration-300 text-gray-800 font-bold"
+                  required
+                />
+              ))}
+            </div>
           </div>
 
           {loading ? (
